@@ -5,7 +5,7 @@ GO
 alter table `pictures` drop FOREIGN KEY `FKe9cv52k04xoy6cj8xy308gnw3`;
 GO
 
--- потом уникальность, которую это внешний ключ использовал
+-- потом уникальность, которую этот внешний ключ использовал
 alter table `pictures` drop key `UK_ehsu2tyinopypjox1ijxt3g3c`;
 GO
 
@@ -20,3 +20,4 @@ GO
 
 drop table `pictures_data`;
 GO
+
