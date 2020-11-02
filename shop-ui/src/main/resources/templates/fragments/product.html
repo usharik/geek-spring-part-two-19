@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<div th:fragment="product (prod)" class="col-sm-4">
+    <div class="product-image-wrapper">
+        <div class="single-products">
+            <div class="productinfo text-center">
+                <img th:src="@{/picture/{pictureId}(pictureId=${prod.pictureIds.get(0)})}" alt="" />
+                <h2 th:text="${prod.price}">$56</h2>
+                <p th:text="${prod.name}">Easy Polo Black Edition</p>
+                <a th:href="@{/product/{productId}(productId=${prod.id})}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            </div>
+            <div class="product-overlay">
+                <div class="overlay-content">
+                    <h2 th:text="${prod.price}">$56</h2>
+                    <p th:text="${prod.name}">Easy Polo Black Edition</p>
+                    <a th:href="@{/product/{productId}(productId=${prod.id})}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="choose">
+            <ul class="nav nav-pills nav-justified">
+                <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</html>

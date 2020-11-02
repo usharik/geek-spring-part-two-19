@@ -1,4 +1,4 @@
-package ru.geekbrains.controllers;
+package ru.geekbrains.exceptions;
 
 public class ServerInternalException extends RuntimeException {
 }

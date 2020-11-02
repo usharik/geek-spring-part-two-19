@@ -1,10 +1,11 @@
 package ru.geekbrains.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.geekbrains.controllers.NotFoundException;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.PictureData;
 import ru.geekbrains.persist.repo.PictureRepository;
+
+import java.util.Optional;
 
 
 public class PictureServiceBlobImpl implements PictureService {
@@ -17,18 +18,16 @@ public class PictureServiceBlobImpl implements PictureService {
     }
 
     @Override
-    public String getPictureContentTypeById(long id) {
+    public Optional<String> getPictureContentTypeById(long id) {
         return pictureRepository.findById(id)
-                .map(Picture::getContentType)
-                .orElseThrow(NotFoundException::new);
+                .map(Picture::getContentType);
     }
 
     @Override
-    public byte[] getPictureDataById(long id) {
+    public Optional<byte[]> getPictureDataById(long id) {
         return pictureRepository.findById(id)
                 .filter(pic -> pic.getPictureData().getData() != null)
-                .map(pic -> pic.getPictureData().getData())
-                .orElseThrow(NotFoundException::new);
+                .map(pic -> pic.getPictureData().getData());
     }
 
     @Override

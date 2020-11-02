@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.geekbrains.controllers.repr.UserRepr;
+import ru.geekbrains.controller.repr.UserRepr;
 import ru.geekbrains.persist.model.User;
 import ru.geekbrains.persist.repo.UserRepository;
 

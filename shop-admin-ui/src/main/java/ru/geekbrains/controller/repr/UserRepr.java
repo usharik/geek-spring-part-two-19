@@ -1,4 +1,4 @@
-package ru.geekbrains.controllers.repr;
+package ru.geekbrains.controller.repr;
 
 import ru.geekbrains.persist.model.Role;
 import ru.geekbrains.persist.model.User;

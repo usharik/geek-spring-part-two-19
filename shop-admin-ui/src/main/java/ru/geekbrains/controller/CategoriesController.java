@@ -1,4 +1,4 @@
-package ru.geekbrains.controllers;
+package ru.geekbrains.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

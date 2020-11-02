@@ -1,4 +1,4 @@
-package ru.geekbrains.controllers.repr;
+package ru.geekbrains.controller.repr;
 
 import org.springframework.web.multipart.MultipartFile;
 import ru.geekbrains.persist.model.Brand;

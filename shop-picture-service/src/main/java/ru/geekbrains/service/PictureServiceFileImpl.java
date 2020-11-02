@@ -3,8 +3,6 @@ package ru.geekbrains.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import ru.geekbrains.controllers.NotFoundException;
-import ru.geekbrains.controllers.ServerInternalException;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.PictureData;
 import ru.geekbrains.persist.repo.PictureRepository;
@@ -14,6 +12,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -31,14 +30,13 @@ public class PictureServiceFileImpl implements PictureService {
     }
 
     @Override
-    public String getPictureContentTypeById(long id) {
+    public Optional<String> getPictureContentTypeById(long id) {
         return pictureRepository.findById(id)
-                .map(Picture::getContentType)
-                .orElseThrow(NotFoundException::new);
+                .map(Picture::getContentType);
     }
 
     @Override
-    public byte[] getPictureDataById(long id) {
+    public Optional<byte[]> getPictureDataById(long id) {
         return pictureRepository.findById(id)
                 .filter(pic -> pic.getPictureData().getFileName() != null)
                 .map(pic -> Paths.get(storagePath, pic.getPictureData().getFileName()))
@@ -48,10 +46,9 @@ public class PictureServiceFileImpl implements PictureService {
                         return Files.readAllBytes(path);
                     } catch (IOException ex) {
                         logger.error("Can't read picture file ", ex);
-                        throw new ServerInternalException();
+                        throw new RuntimeException(ex);
                     }
-                })
-                .orElseThrow(NotFoundException::new);
+                });
     }
 
     @Override
@@ -61,7 +58,7 @@ public class PictureServiceFileImpl implements PictureService {
             outputStream.write(picture);
         } catch (IOException ex) {
             logger.error("Can't create picture file ", ex);
-            throw new ServerInternalException();
+            throw new RuntimeException(ex);
         }
 
         return new PictureData(fileName);

@@ -1,4 +1,4 @@
-package ru.geekbrains.controllers;
+package ru.geekbrains.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import ru.geekbrains.controllers.repr.ProductRepr;
+import ru.geekbrains.controller.repr.ProductRepr;
+import ru.geekbrains.exceptions.NotFoundException;
 import ru.geekbrains.persist.repo.BrandRepository;
 import ru.geekbrains.persist.repo.CategoryRepository;
 import ru.geekbrains.service.ProductService;
