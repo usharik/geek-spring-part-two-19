@@ -7,7 +7,7 @@
     <div class="product-image-wrapper">
         <div class="single-products">
             <div class="productinfo text-center">
-                <img th:src="@{/picture/{pictureId}(pictureId=${prod.pictureIds.get(0)})}" alt=""/>
+                <img th:src="@{{pictureServiceUrl}/picture/{pictureId}(pictureId=${prod.pictureIds.get(0)}, pictureServiceUrl=${pictureServiceUrl})}" alt=""/>
                 <h2 th:text="${prod.price}">$56</h2>
                 <p th:text="${prod.name}">Easy Polo Black Edition</p>
                 <a th:href="@{/product/{productId}(productId=${prod.id})}" class="btn btn-default add-to-cart">View product</a>
