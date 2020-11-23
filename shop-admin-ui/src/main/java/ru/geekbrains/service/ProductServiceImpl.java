@@ -28,10 +28,13 @@ public class ProductServiceImpl implements ProductService, Serializable {
 
     private final PictureService pictureService;
 
+    private final StockService stockService;
+
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, PictureService pictureService) {
+    public ProductServiceImpl(ProductRepository productRepository, PictureService pictureService, StockService stockService) {
         this.productRepository = productRepository;
         this.pictureService = pictureService;
+        this.stockService = stockService;
     }
 
     @Override
@@ -39,6 +42,7 @@ public class ProductServiceImpl implements ProductService, Serializable {
     public List<ProductRepr> findAll() {
         return productRepository.findAll().stream()
                 .map(ProductRepr::new)
+                .peek(pr -> pr.setCount(stockService.getStockById(pr.getId()).getCount()))
                 .collect(Collectors.toList());
     }
 

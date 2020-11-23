@@ -28,6 +28,7 @@
                     <th>Categories</th>
                     <th>Brand</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                     <th class="actions">Actions</th>
                     </thead>
                     <tbody>
@@ -37,6 +38,7 @@
                         <td th:text="${prod.category.name}"></td>
                         <td th:text="${prod.brand.name}"></td>
                         <td th:text="${prod.price}"></td>
+                        <td th:text="${prod.count}"></td>
                         <td>
                             <a th:href="@{/product/{id}/edit(id=${prod.id})}" class="btn btn-icon btn-pill btn-primary"
                                data-toggle="tooltip" title="Edit">

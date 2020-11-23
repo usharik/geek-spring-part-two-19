@@ -33,6 +33,7 @@
         <module>spring-zuul</module>
         <module>spring-cloud-config</module>
         <module>spring-gateway</module>
+        <module>shop-stock-service</module>
     </modules>
 
     <dependencies>
