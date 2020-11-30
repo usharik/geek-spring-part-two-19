@@ -34,6 +34,8 @@
         <module>spring-cloud-config</module>
         <module>spring-gateway</module>
         <module>shop-stock-service</module>
+        <module>rabbit-mq-sender</module>
+        <module>spring-integration-demo</module>
     </modules>
 
     <dependencies>
