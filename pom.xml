@@ -36,6 +36,7 @@
         <module>shop-stock-service</module>
         <module>rabbit-mq-sender</module>
         <module>spring-integration-demo</module>
+        <module>shop-ui-tests</module>
     </modules>
 
     <dependencies>

@@ -1,5 +1,6 @@
 package ru.geekbrains;
 
+import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import ru.geekbrains.repr.TextMessage;
 public class SendMessageController {
 
     private final AmqpTemplate rabbitTemplate;
+
+    @Autowired
+    private AmqpAdmin admin;
 
     @Value("${user.name}")
     private String userName;

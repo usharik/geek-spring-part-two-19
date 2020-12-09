@@ -21,6 +21,13 @@ public class Brand implements Serializable {
             cascade = CascadeType.ALL)
     private List<Product> products;
 
+    public Brand() {
+    }
+
+    public Brand(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

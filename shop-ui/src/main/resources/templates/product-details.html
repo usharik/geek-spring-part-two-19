@@ -18,7 +18,7 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img th:src="@{/picture/{pictureId}(pictureId=${product.pictureIds.get(0)})}" alt="" />
+								<img th:if="${!product.pictureIds.empty}" th:src="@{/picture/{pictureId}(pictureId=${product.pictureIds.get(0)})}" alt="" />
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
